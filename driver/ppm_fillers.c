@@ -562,7 +562,8 @@ static int f_sys_open_x(struct event_filler_arguments *args)
 	 *
 	 * syscall_get_arguments(current, args->regs, 2, 1, &val);
 	 */
-	res = val_to_ring(args, 0, 0, false, 0);
+	syscall_get_arguments(current, args->regs, 2, 1, &val);
+	res = val_to_ring(args, val, 0, false, 0);
 	if (unlikely(res != PPM_SUCCESS))
 		return res;
 

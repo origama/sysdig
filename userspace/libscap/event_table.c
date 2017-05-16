@@ -23,7 +23,7 @@ const struct ppm_event_info g_event_info[PPM_EVENT_MAX] = {
 	/* PPME_GENERIC_E */{"syscall", EC_OTHER, EF_NONE, 2, {{"ID", PT_SYSCALLID, PF_DEC}, {"nativeID", PT_UINT16, PF_DEC} } },
 	/* PPME_GENERIC_X */{"syscall", EC_OTHER, EF_NONE, 1, {{"ID", PT_SYSCALLID, PF_DEC} } },
 	/* PPME_SYSCALL_OPEN_E */{"open", EC_FILE, EF_CREATES_FD | EF_MODIFIES_STATE, 0},
-	/* PPME_SYSCALL_OPEN_X */{"open", EC_FILE, EF_CREATES_FD | EF_MODIFIES_STATE, 4, {{"fd", PT_FD, PF_DEC}, {"name", PT_FSPATH, PF_NA}, {"flags", PT_FLAGS32, PF_HEX, file_flags}, {"mode", PT_UINT32, PF_HEX} } },
+	/* PPME_SYSCALL_OPEN_X */{"open", EC_FILE, EF_CREATES_FD | EF_MODIFIES_STATE, 4, {{"fd", PT_FD, PF_DEC}, {"name", PT_FSPATH, PF_NA}, {"flags", PT_FLAGS32, PF_HEX, file_flags}, {"mode", PT_MODE, PF_OCT} } },
 	/* PPME_SYSCALL_CLOSE_E */{"close", EC_IO_OTHER, EF_DESTROYS_FD | EF_USES_FD | EF_MODIFIES_STATE | EF_DROP_FALCO, 1, {{"fd", PT_FD, PF_DEC} } },
 	/* PPME_SYSCALL_CLOSE_X */{"close", EC_IO_OTHER, EF_DESTROYS_FD | EF_USES_FD | EF_MODIFIES_STATE | EF_DROP_FALCO, 1, {{"res", PT_ERRNO, PF_DEC} } },
 	/* PPME_SYSCALL_READ_E */{"read", EC_IO_READ, EF_USES_FD | EF_READS_FROM_FD | EF_DROP_FALCO, 2, {{"fd", PT_FD, PF_DEC}, {"size", PT_UINT32, PF_DEC} } },

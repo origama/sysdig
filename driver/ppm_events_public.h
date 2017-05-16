@@ -1188,7 +1188,8 @@ enum ppm_param_type {
 	PT_CHARBUFARRAY = 35,	/* Pointer to an array of strings, exported by the user events decoder. 64bit. For internal use only. */
 	PT_CHARBUF_PAIR_ARRAY = 36,	/* Pointer to an array of string pairs, exported by the user events decoder. 64bit. For internal use only. */
 	PT_IPV4NET = 37, /* An IPv4 network. */
-	PT_MAX = 38 /* array size */
+	PT_MAX = 38, /* array size */
+        PT_MODE = 39 /* access mode in sys_open*/
 };
 
 enum ppm_print_format {
@@ -1198,6 +1199,7 @@ enum ppm_print_format {
 	PF_10_PADDED_DEC = 3, /* decimal padded to 10 digits, useful to print the fractional part of a ns timestamp */
 	PF_ID = 4,
 	PF_DIR = 5,
+	PF_OCT = 6, /*octal*/
 };
 
 /*!

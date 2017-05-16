@@ -8,6 +8,10 @@
 *.mod.c
 *.o.d
 *.o.rc
+*.swp
+*.swn
+*.swo
+gg
 build/
 driver/Makefile
 driver/driver_config.h

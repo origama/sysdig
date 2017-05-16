@@ -247,6 +247,9 @@ const char* param_type_to_string(ppm_param_type pt)
 	case PT_DOUBLE:
 		return "DOUBLE";
 		break;
+        case PT_MODE:
+		return "MODE";
+		break;
 	default:
 		ASSERT(false);
 		return "<NA>";

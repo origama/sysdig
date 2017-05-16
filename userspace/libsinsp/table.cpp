@@ -854,6 +854,7 @@ void sinsp_table::set_sorting_col(uint32_t col)
 			case PT_UINT8:
 			case PT_UINT16:
 			case PT_UINT32:
+			case PT_MODE:
 			case PT_UINT64:
 			case PT_RELTIME:
 			case PT_ABSTIME:
@@ -975,6 +976,7 @@ void sinsp_table::add_fields_sum(ppm_param_type type, sinsp_table_field *dst, si
 		*(uint16_t*)operand1 += *(uint16_t*)operand2;
 		return;
 	case PT_UINT32:
+	case PT_MODE:
 	case PT_BOOL:
 		*(uint32_t*)operand1 += *(uint32_t*)operand2;
 		return;
@@ -1325,6 +1327,7 @@ uint32_t sinsp_table::get_field_len(uint32_t id)
 	case PT_SYSCALLID:
 		return 2;
 	case PT_UINT32:
+	case PT_MODE:
 	case PT_FLAGS32:
 	case PT_BOOL:
 	case PT_IPV4ADDR:
@@ -1361,6 +1364,7 @@ uint8_t* sinsp_table::get_default_val(filtercheck_field_info* fld)
 	case PT_UINT8:
 	case PT_UINT16:
 	case PT_UINT32:
+	case PT_MODE:
 	case PT_UINT64:
 	case PT_BOOL:
 	case PT_RELTIME:

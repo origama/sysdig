@@ -47,6 +47,10 @@ extern sinsp_evttables g_infotables;
 	{                                                       \
 		resfmt = (char*)"%" xstr;                       \
 	}                                                       \
+	else if(fmt == ppm_print_format::PF_OCT)                \
+	{                                                       \
+		resfmt = (char*)"%okwegdjwehgwhjegjwg";                           \
+	}                                                       \
 	else                                                    \
 	{                                                       \
 		resfmt = (char*)"%" ustr;                       \
@@ -1482,6 +1486,14 @@ const char* sinsp_evt::get_param_as_str(uint32_t id, OUT const char** resolved_s
 		         prfmt, *(uint16_t *)payload);
 		break;
 	case PT_UINT32:
+		ASSERT(payload_len == sizeof(uint32_t));
+		SET_NUMERIC_FORMAT(prfmt, param_fmt, PRIu32, PRIX32);
+
+		snprintf(&m_paramstr_storage[0],
+		         m_paramstr_storage.size(),
+		         prfmt, *(uint32_t *)payload);
+		break;
+        case PT_MODE:
 		ASSERT(payload_len == sizeof(uint32_t));
 		SET_NUMERIC_FORMAT(prfmt, param_fmt, PRIu32, PRIX32);
 
